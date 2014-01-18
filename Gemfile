@@ -33,6 +33,14 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 
+  gem 'flickraw'
+
+gem 'protected_attributes'
+
+  #require:"flickr/login"
+
+gem 'devise'
+
 
 end
 

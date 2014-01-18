@@ -1,0 +1,35 @@
+<div id='flickr_toggle_display_<%=@session[:flickr_display] ? "on" : "off"%>'>
+  <p>
+	<%= link_to_remote((@session[:flickr_display] ? "[Hide" : "[Display") + " Flickr Pictures]",
+	  :update => "flickr_photo_bar",
+	  :url => { :controller => "flickr", :action => "toggle_display" } ) %>
+  </p>  
+</div>	  
+
+<% if @session[:flickr_display] %>
+	
+	<% if @session[:flickr_page] > 1 %>
+		<%= link_to_remote(image_tag('topSliderPageLeft.gif', :class => 'flickr_slider'), 
+			:update => "flickr_photo_bar",
+			:url => { :controller => "flickr", :action => "scroll_left" } ) %>
+	<% else %>
+	  <%= image_tag('topSliderPageLeftDisabled.gif', :class => 'flickr_slider') %>
+	<% end %>		
+			
+	<div id="flickr_photos">
+	<div>		
+	<% if @photos.nil? %>
+	  <p>There was an error retrieving your photos from Flickr.</p>
+	<% else %>
+		<% for photo in @photos %>
+		  <%= flickr_photo_tag(photo) %>
+		<% end %>
+	<% end %>	
+	</div>
+	</div>
+	
+	<%= link_to_remote(image_tag('topSliderPageRight.gif', :class => 'flickr_slider'), 
+		:update => "flickr_photo_bar",
+		:url => { :controller => "flickr", :action => "scroll_right" } ) %>
+		<!-- :loading => visual_effect(:slide_right, 'photos', :duration => 2)) %-->
+<% end %>	

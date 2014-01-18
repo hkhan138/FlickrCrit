@@ -1,9 +1,21 @@
-<ul class="nav nav-pills">
-  <li class="active"><a href="#">Home</a></li>
-  <li><a href="#">Profile</a></li>
-  <li><a href="#">Messages</a></li>
-</ul>
 
+*= require bootstrap 
+
+.navbar
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+}
+
+<style type="text/css">
+.backgroundBox {
+  width:200;
+  height:200;
+  overflow:scroll;
+  font:20pt/36pt;
+  background: url("public/images/1.jpg") #ff9900 90% 30% no-repeat fixed
+}
+</style>
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files

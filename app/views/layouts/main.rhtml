@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Flickr Crit</title>
+    
+    <%= stylesheet_link_tag "styles.css", :media => "all" %>    
+    <%= javascript_include_tag :defaults %> 
+  </head>
+  
+  <% if @body_tag %>
+    <body <%= @body_tag %>>
+  <% else %>
+    <body>
+  <% end %>
+    <%= @content_for_layout %>
+  </body>
+</html>
+
